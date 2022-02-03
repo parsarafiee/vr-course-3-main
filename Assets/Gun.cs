@@ -27,4 +27,5 @@ public class Gun : MonoBehaviour
         audioSource.PlayOneShot(audioClip); 
         Destroy(spawnBullet,2);
     }
+
 }
