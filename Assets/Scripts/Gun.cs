@@ -14,7 +14,9 @@ public class Gun : MonoBehaviour
     public Transform barrel;
     public AudioClip audioClip;
     public AudioSource audioSource;
-  //  public XRController controller;
+    GameObject spawnBullet;
+    bool weShoot;
+    //  public XRController controller;
 
 
 
@@ -22,10 +24,11 @@ public class Gun : MonoBehaviour
     public void Fire()
     {
       //  controller.gameObject.GetComponent<XRDirectInteractor>().playHapticsOnSelectEnter = true;
-        GameObject spawnBullet = Instantiate(bullet,barrel.position,barrel.rotation);
+        spawnBullet = Instantiate(bullet,barrel.position,barrel.rotation);
         spawnBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
         audioSource.PlayOneShot(audioClip); 
         Destroy(spawnBullet,2);
     }
+
 
 }
