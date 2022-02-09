@@ -12,7 +12,6 @@ public class GrapplingGun : MonoBehaviour
     public Transform gunTip;
     public Transform Player;
     public float maxDistance = 100;
-    public Rigidbody rb;
     private SpringJoint joint;
     private Vector3 grapplePoint;
    // public Player playerScript;
@@ -27,7 +26,6 @@ public class GrapplingGun : MonoBehaviour
 
     public void Swing()
     {
-        rb.useGravity = true;
         
         //  playerScript.enabled = false;
         RaycastHit hit;
