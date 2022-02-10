@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/shoot with gun.unity
     guid: 45ed6ba8c1e40d54eb6dff36b4244499
+  - enabled: 1
+    path: Assets/Scenes/GrapplingGun.unity
+    guid: 6608a0b153e9d6f43b6509d3fe95d022
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 85b73d61712926742a4fc26d34c21e22, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: ac0fdc284a351e2469ab4873cfd89d48, type: 2}

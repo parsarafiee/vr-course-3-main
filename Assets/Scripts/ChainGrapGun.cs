@@ -12,7 +12,7 @@ public class ChainGrapGun : MonoBehaviour
     public AudioSource audioSource;
     public LineRenderer lr;
 
-    bool weShoot;
+    public bool isShoot;
 
     public GameObject player;
     private SpringJoint jointToPlayer;
@@ -20,9 +20,9 @@ public class ChainGrapGun : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!weShoot)
+        if (!isShoot)
         {
-            bullet.gameObject.transform.position = barrel.position;
+            bullet.gameObject.transform.position = barrel.position;     
             bullet.gameObject.transform.rotation = barrel.rotation;
 
         }
@@ -34,15 +34,17 @@ public class ChainGrapGun : MonoBehaviour
     // Update is called once per frame
     public void FireBullet()
     {
+        bullet.gameObject.transform.position = barrel.position;
+        bullet.gameObject.transform.rotation = barrel.rotation;
         //  controller.gameObject.GetComponent<XRDirectInteractor>().playHapticsOnSelectEnter = true;
-        weShoot=true;
+        isShoot =true;
         BulletRB.velocity = speed * barrel.forward;
         audioSource.PlayOneShot(audioClip);
        
     }
     public void CancelGrappling()
     {
-           weShoot = false;
+        isShoot = false;
         bullet.DestroyJoint();
         StopSWing();
     }

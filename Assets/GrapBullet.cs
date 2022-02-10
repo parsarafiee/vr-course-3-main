@@ -12,31 +12,44 @@ public class GrapBullet : MonoBehaviour
     public bool hit;
     public GameObject gun;
 
+
     public Vector3 collitionPositon;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag =="House")
+        if (chainGrapGun.isShoot)
         {
-            joint = gameObject.AddComponent<FixedJoint>();
-            joint.connectedBody = collision.gameObject.GetComponent<Rigidbody>();
-             collitionPositon= collision.contacts[0].point;
-            joint.connectedAnchor = collitionPositon;
+            if (collision.gameObject.tag == "House")
+            {
+                joint = gameObject.AddComponent<FixedJoint>();
+                joint.connectedBody = collision.gameObject.GetComponent<Rigidbody>();
+                collitionPositon = collision.contacts[0].point;
+                joint.connectedAnchor = collitionPositon;
 
-            float distance = Vector3.Distance(barrel.position, collitionPositon);
-            int numberOfChain =(int)( distance);
+                float distance = Vector3.Distance(barrel.position, collitionPositon);
+                int numberOfChain = (int)(distance);
 
-            List<GameObject> gameObjects= new List<GameObject>();
-            hit = true;
+                List<GameObject> gameObjects = new List<GameObject>();
+                hit = true;
 
-            chainGrapGun.lr.positionCount = 2;
-            chainGrapGun.Swing(collitionPositon, collision.gameObject.GetComponent<Rigidbody>());
+                chainGrapGun.lr.positionCount = 2;
+                chainGrapGun.Swing(collitionPositon, collision.gameObject.GetComponent<Rigidbody>());
+            }
+
         }
+
     }
     public void DestroyJoint()
     {
         hit = false;
         Destroy(joint);
+    }
+
+    void Update()
+    {
+        
+
+      
     }
 
 }
