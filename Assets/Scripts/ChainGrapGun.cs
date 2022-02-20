@@ -17,7 +17,8 @@ public class ChainGrapGun : MonoBehaviour
     public GameObject player;
     private SpringJoint jointToPlayer;
 
-
+    private float mindis = 1;
+    private float maxdis = 1;
     private void LateUpdate()
     {
         if (!isShoot)
@@ -64,8 +65,8 @@ public class ChainGrapGun : MonoBehaviour
        // jointToPlayer.connectedAnchor = PointToSwing;
         float distanceFromPoint = Vector3.Distance(player.transform.position, PointToSwing);
 
-        jointToPlayer.maxDistance = distanceFromPoint * 0.8f;
-        jointToPlayer.minDistance = distanceFromPoint * 0.25f;
+        jointToPlayer.maxDistance = distanceFromPoint * mindis;
+        jointToPlayer.minDistance = distanceFromPoint * maxdis;
 
 
         jointToPlayer.spring = 4.5f;

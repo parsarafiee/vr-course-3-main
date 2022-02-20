@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrapBullet : MonoBehaviour
-{    public Rigidbody bulletRigidBody;
+{    
      FixedJoint joint;
  //   public GameObject chain;
     public Transform barrel;
